@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at controller.v(20): always construct contains both blocking and non-blocking assignments File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/controller.v Line: 20
+Info (10281): Verilog HDL Declaration information at controller.v(10): object "add" differs only in case from object "ADD" in the same scope File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/controller.v Line: 10

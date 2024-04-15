@@ -1,0 +1,561 @@
+Analysis & Synthesis report for mac
+Tue Mar 05 13:01:00 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: controller:cont
+ 14. Port Connectivity Checks: "controller:cont"
+ 15. Port Connectivity Checks: "add_accumulate:adc|ksa20:adder"
+ 16. Port Connectivity Checks: "add_accumulate:adc|register_20:reg1"
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+ 20. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Mar 05 13:01:00 2024       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; mac                                         ;
+; Top-level Entity Name              ; mac                                         ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 293                                         ;
+;     Total combinational functions  ; 260                                         ;
+;     Dedicated logic registers      ; 82                                          ;
+; Total registers                    ; 82                                          ;
+; Total pins                         ; 48                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE22F17C6       ;                    ;
+; Top-level entity name                                            ; mac                ; mac                ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                              ;
++-----------------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                         ; Library ;
++-----------------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------+---------+
+; verilog codes/wallace_tree_multiplier.v ; yes             ; User Verilog HDL File  ; D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v ;         ;
+; verilog codes/register_20.v             ; yes             ; User Verilog HDL File  ; D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/register_20.v             ;         ;
+; verilog codes/register_8.v              ; yes             ; User Verilog HDL File  ; D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/register_8.v              ;         ;
+; verilog codes/ksa20.v                   ; yes             ; User Verilog HDL File  ; D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/ksa20.v                   ;         ;
+; verilog codes/dff.v                     ; yes             ; User Verilog HDL File  ; D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/dff.v                     ;         ;
+; verilog codes/controller.v              ; yes             ; User Verilog HDL File  ; D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/controller.v              ;         ;
+; verilog codes/add_accmulate.v           ; yes             ; User Verilog HDL File  ; D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/add_accmulate.v           ;         ;
+; mac.v                                   ; yes             ; User Verilog HDL File  ; D:/Arvind/Engineering Material/Mini Project/Quartus Projects/mac.v                                   ;         ;
++-----------------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                             ;
++---------------------------------------------+---------------------------+
+; Resource                                    ; Usage                     ;
++---------------------------------------------+---------------------------+
+; Estimated Total logic elements              ; 293                       ;
+;                                             ;                           ;
+; Total combinational functions               ; 260                       ;
+; Logic element usage by number of LUT inputs ;                           ;
+;     -- 4 input functions                    ; 167                       ;
+;     -- 3 input functions                    ; 29                        ;
+;     -- <=2 input functions                  ; 64                        ;
+;                                             ;                           ;
+; Logic elements by mode                      ;                           ;
+;     -- normal mode                          ; 255                       ;
+;     -- arithmetic mode                      ; 5                         ;
+;                                             ;                           ;
+; Total registers                             ; 82                        ;
+;     -- Dedicated logic registers            ; 82                        ;
+;     -- I/O registers                        ; 0                         ;
+;                                             ;                           ;
+; I/O pins                                    ; 48                        ;
+;                                             ;                           ;
+; Embedded Multiplier 9-bit elements          ; 0                         ;
+;                                             ;                           ;
+; Maximum fan-out node                        ; controller:cont|reset_out ;
+; Maximum fan-out                             ; 52                        ;
+; Total fan-out                               ; 1212                      ;
+; Average fan-out                             ; 2.77                      ;
++---------------------------------------------+---------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                     ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                       ; Entity Name             ; Library Name ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+-------------------------+--------------+
+; |mac                                    ; 260 (0)             ; 82 (0)                    ; 0           ; 0            ; 0       ; 0         ; 48   ; 0            ; |mac                                                      ; mac                     ; work         ;
+;    |add_accumulate:adc|                 ; 63 (0)              ; 35 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc                                   ; add_accumulate          ; work         ;
+;       |ksa20:adder|                     ; 59 (59)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|ksa20:adder                       ; ksa20                   ; work         ;
+;       |register_20:reg1|                ; 0 (0)               ; 16 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1                  ; register_20             ; work         ;
+;          |d_ff:for1[0].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[0].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[10].di|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[10].di ; d_ff                    ; work         ;
+;          |d_ff:for1[11].di|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[11].di ; d_ff                    ; work         ;
+;          |d_ff:for1[12].di|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[12].di ; d_ff                    ; work         ;
+;          |d_ff:for1[13].di|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[13].di ; d_ff                    ; work         ;
+;          |d_ff:for1[14].di|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[14].di ; d_ff                    ; work         ;
+;          |d_ff:for1[15].di|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[15].di ; d_ff                    ; work         ;
+;          |d_ff:for1[1].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[1].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[2].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[2].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[3].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[3].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[4].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[4].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[5].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[5].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[6].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[6].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[7].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[7].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[8].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[8].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[9].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg1|d_ff:for1[9].di  ; d_ff                    ; work         ;
+;       |register_20:reg2|                ; 4 (0)               ; 19 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2                  ; register_20             ; work         ;
+;          |d_ff:for1[0].di|              ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[0].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[10].di|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[10].di ; d_ff                    ; work         ;
+;          |d_ff:for1[11].di|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[11].di ; d_ff                    ; work         ;
+;          |d_ff:for1[12].di|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[12].di ; d_ff                    ; work         ;
+;          |d_ff:for1[13].di|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[13].di ; d_ff                    ; work         ;
+;          |d_ff:for1[14].di|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[14].di ; d_ff                    ; work         ;
+;          |d_ff:for1[15].di|             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[15].di ; d_ff                    ; work         ;
+;          |d_ff:for1[16].di|             ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[16].di ; d_ff                    ; work         ;
+;          |d_ff:for1[17].di|             ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[17].di ; d_ff                    ; work         ;
+;          |d_ff:for1[18].di|             ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[18].di ; d_ff                    ; work         ;
+;          |d_ff:for1[1].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[1].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[2].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[2].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[3].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[3].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[4].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[4].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[5].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[5].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[6].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[6].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[7].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[7].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[8].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[8].di  ; d_ff                    ; work         ;
+;          |d_ff:for1[9].di|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|add_accumulate:adc|register_20:reg2|d_ff:for1[9].di  ; d_ff                    ; work         ;
+;    |controller:cont|                    ; 24 (24)             ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|controller:cont                                      ; controller              ; work         ;
+;    |register_8:rega|                    ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:rega                                      ; register_8              ; work         ;
+;       |d_ff:d0|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:rega|d_ff:d0                              ; d_ff                    ; work         ;
+;       |d_ff:d1|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:rega|d_ff:d1                              ; d_ff                    ; work         ;
+;       |d_ff:d2|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:rega|d_ff:d2                              ; d_ff                    ; work         ;
+;       |d_ff:d3|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:rega|d_ff:d3                              ; d_ff                    ; work         ;
+;       |d_ff:d4|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:rega|d_ff:d4                              ; d_ff                    ; work         ;
+;       |d_ff:d5|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:rega|d_ff:d5                              ; d_ff                    ; work         ;
+;       |d_ff:d6|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:rega|d_ff:d6                              ; d_ff                    ; work         ;
+;       |d_ff:d7|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:rega|d_ff:d7                              ; d_ff                    ; work         ;
+;    |register_8:regb|                    ; 0 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:regb                                      ; register_8              ; work         ;
+;       |d_ff:d0|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:regb|d_ff:d0                              ; d_ff                    ; work         ;
+;       |d_ff:d1|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:regb|d_ff:d1                              ; d_ff                    ; work         ;
+;       |d_ff:d2|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:regb|d_ff:d2                              ; d_ff                    ; work         ;
+;       |d_ff:d3|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:regb|d_ff:d3                              ; d_ff                    ; work         ;
+;       |d_ff:d4|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:regb|d_ff:d4                              ; d_ff                    ; work         ;
+;       |d_ff:d5|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:regb|d_ff:d5                              ; d_ff                    ; work         ;
+;       |d_ff:d6|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:regb|d_ff:d6                              ; d_ff                    ; work         ;
+;       |d_ff:d7|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|register_8:regb|d_ff:d7                              ; d_ff                    ; work         ;
+;    |wallace_tree_multiplier:multiplier| ; 173 (31)            ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier                   ; wallace_tree_multiplier ; work         ;
+;       |FA:result10_FA_1|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result10_FA_1  ; FA                      ; work         ;
+;       |FA:result10_FA_2|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result10_FA_2  ; FA                      ; work         ;
+;       |FA:result10_FA_3|                ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result10_FA_3  ; FA                      ; work         ;
+;       |FA:result10_FA_4|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result10_FA_4  ; FA                      ; work         ;
+;       |FA:result10_FA_5|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result10_FA_5  ; FA                      ; work         ;
+;       |FA:result11_FA_1|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result11_FA_1  ; FA                      ; work         ;
+;       |FA:result11_FA_2|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result11_FA_2  ; FA                      ; work         ;
+;       |FA:result11_FA_3|                ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result11_FA_3  ; FA                      ; work         ;
+;       |FA:result11_FA_4|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result11_FA_4  ; FA                      ; work         ;
+;       |FA:result12_FA_1|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result12_FA_1  ; FA                      ; work         ;
+;       |FA:result12_FA_2|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result12_FA_2  ; FA                      ; work         ;
+;       |FA:result12_FA_3|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result12_FA_3  ; FA                      ; work         ;
+;       |FA:result13_FA_1|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result13_FA_1  ; FA                      ; work         ;
+;       |FA:result13_FA_2|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result13_FA_2  ; FA                      ; work         ;
+;       |FA:result14_FA_1|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result14_FA_1  ; FA                      ; work         ;
+;       |FA:result2_FA_1|                 ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result2_FA_1   ; FA                      ; work         ;
+;       |FA:result3_FA_1|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result3_FA_1   ; FA                      ; work         ;
+;       |FA:result3_FA_2|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result3_FA_2   ; FA                      ; work         ;
+;       |FA:result4_FA_1|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result4_FA_1   ; FA                      ; work         ;
+;       |FA:result4_FA_2|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result4_FA_2   ; FA                      ; work         ;
+;       |FA:result4_FA_3|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result4_FA_3   ; FA                      ; work         ;
+;       |FA:result5_FA_1|                 ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result5_FA_1   ; FA                      ; work         ;
+;       |FA:result5_FA_2|                 ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result5_FA_2   ; FA                      ; work         ;
+;       |FA:result5_FA_3|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result5_FA_3   ; FA                      ; work         ;
+;       |FA:result5_FA_4|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result5_FA_4   ; FA                      ; work         ;
+;       |FA:result6_FA_1|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result6_FA_1   ; FA                      ; work         ;
+;       |FA:result6_FA_2|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result6_FA_2   ; FA                      ; work         ;
+;       |FA:result6_FA_3|                 ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result6_FA_3   ; FA                      ; work         ;
+;       |FA:result6_FA_4|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result6_FA_4   ; FA                      ; work         ;
+;       |FA:result6_FA_5|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result6_FA_5   ; FA                      ; work         ;
+;       |FA:result7_FA_1|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result7_FA_1   ; FA                      ; work         ;
+;       |FA:result7_FA_2|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result7_FA_2   ; FA                      ; work         ;
+;       |FA:result7_FA_3|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result7_FA_3   ; FA                      ; work         ;
+;       |FA:result7_FA_4|                 ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result7_FA_4   ; FA                      ; work         ;
+;       |FA:result7_FA_5|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result7_FA_5   ; FA                      ; work         ;
+;       |FA:result7_FA_6|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result7_FA_6   ; FA                      ; work         ;
+;       |FA:result8_FA_1|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result8_FA_1   ; FA                      ; work         ;
+;       |FA:result8_FA_2|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result8_FA_2   ; FA                      ; work         ;
+;       |FA:result8_FA_3|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result8_FA_3   ; FA                      ; work         ;
+;       |FA:result8_FA_4|                 ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result8_FA_4   ; FA                      ; work         ;
+;       |FA:result8_FA_5|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result8_FA_5   ; FA                      ; work         ;
+;       |FA:result8_FA_6|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result8_FA_6   ; FA                      ; work         ;
+;       |FA:result9_FA_1|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result9_FA_1   ; FA                      ; work         ;
+;       |FA:result9_FA_2|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result9_FA_2   ; FA                      ; work         ;
+;       |FA:result9_FA_3|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result9_FA_3   ; FA                      ; work         ;
+;       |FA:result9_FA_4|                 ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result9_FA_4   ; FA                      ; work         ;
+;       |FA:result9_FA_5|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result9_FA_5   ; FA                      ; work         ;
+;       |FA:result9_FA_6|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|FA:result9_FA_6   ; FA                      ; work         ;
+;       |HA:result1_HA_1|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|HA:result1_HA_1   ; HA                      ; work         ;
+;       |HA:result2_HA_1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|HA:result2_HA_1   ; HA                      ; work         ;
+;       |HA:result3_HA_1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|HA:result3_HA_1   ; HA                      ; work         ;
+;       |HA:result4_HA_1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|HA:result4_HA_1   ; HA                      ; work         ;
+;       |HA:result5_HA_1|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|HA:result5_HA_1   ; HA                      ; work         ;
+;       |HA:result6_HA_1|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|HA:result6_HA_1   ; HA                      ; work         ;
+;       |HA:result7_HA_1|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|HA:result7_HA_1   ; HA                      ; work         ;
+;       |HA:result8_HA_1|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mac|wallace_tree_multiplier:multiplier|HA:result8_HA_1   ; HA                      ; work         ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+-------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                              ;
++--------------------------------------------------------+----------------------------------------+
+; Register name                                          ; Reason for Removal                     ;
++--------------------------------------------------------+----------------------------------------+
+; add_accumulate:adc|register_20:reg1|d_ff:for1[19].di|q ; Stuck at GND due to stuck port data_in ;
+; add_accumulate:adc|register_20:reg1|d_ff:for1[18].di|q ; Stuck at GND due to stuck port data_in ;
+; add_accumulate:adc|register_20:reg1|d_ff:for1[17].di|q ; Stuck at GND due to stuck port data_in ;
+; add_accumulate:adc|register_20:reg1|d_ff:for1[16].di|q ; Stuck at GND due to stuck port data_in ;
+; add_accumulate:adc|register_20:reg2|d_ff:for1[19].di|q ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 5                  ;                                        ;
++--------------------------------------------------------+----------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                 ;
++--------------------------------------------------------+---------------------------+--------------------------------------------------------+
+; Register name                                          ; Reason for Removal        ; Registers Removed due to This Register                 ;
++--------------------------------------------------------+---------------------------+--------------------------------------------------------+
+; add_accumulate:adc|register_20:reg1|d_ff:for1[19].di|q ; Stuck at GND              ; add_accumulate:adc|register_20:reg2|d_ff:for1[19].di|q ;
+;                                                        ; due to stuck port data_in ;                                                        ;
++--------------------------------------------------------+---------------------------+--------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 82    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 82    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 11    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; controller:cont|temp_count[5]          ; 2       ;
+; controller:cont|temp_count[2]          ; 6       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; 8:1                ; 5 bits    ; 25 LEs        ; 20 LEs               ; 5 LEs                  ; Yes        ; |mac|controller:cont|reset_out ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controller:cont ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; IDLE           ; 000   ; Unsigned Binary                     ;
+; INIT           ; 001   ; Unsigned Binary                     ;
+; LOAD           ; 010   ; Unsigned Binary                     ;
+; RUN            ; 011   ; Unsigned Binary                     ;
+; TEST           ; 100   ; Unsigned Binary                     ;
+; ADD            ; 101   ; Unsigned Binary                     ;
+; END            ; 110   ; Unsigned Binary                     ;
+; NUMBER         ; 100   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controller:cont"                                                                        ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; write_en ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "add_accumulate:adc|ksa20:adder" ;
++------+-------+----------+----------------------------------+
+; Port ; Type  ; Severity ; Details                          ;
++------+-------+----------+----------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                     ;
++------+-------+----------+----------------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "add_accumulate:adc|register_20:reg1" ;
++------------+-------+----------+---------------------------------+
+; Port       ; Type  ; Severity ; Details                         ;
++------------+-------+----------+---------------------------------+
+; in[19..16] ; Input ; Info     ; Stuck at GND                    ;
++------------+-------+----------+---------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 48                          ;
+; cycloneiii_ff         ; 82                          ;
+;     CLR               ; 71                          ;
+;     ENA CLR           ; 11                          ;
+; cycloneiii_lcell_comb ; 261                         ;
+;     arith             ; 5                           ;
+;         2 data inputs ; 5                           ;
+;     normal            ; 256                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 56                          ;
+;         3 data inputs ; 29                          ;
+;         4 data inputs ; 167                         ;
+;                       ;                             ;
+; Max LUT depth         ; 24.00                       ;
+; Average LUT depth     ; 11.13                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Tue Mar 05 13:00:46 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mac -c mac
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 3 design units, including 3 entities, in source file verilog codes/wallace_tree_multiplier.v
+    Info (12023): Found entity 1: wallace_tree_multiplier File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 1
+    Info (12023): Found entity 2: FA File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 142
+    Info (12023): Found entity 3: HA File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 161
+Info (12021): Found 1 design units, including 1 entities, in source file verilog codes/register_20.v
+    Info (12023): Found entity 1: register_20 File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/register_20.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file verilog codes/register_8.v
+    Info (12023): Found entity 1: register_8 File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/register_8.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file verilog codes/mac_tb.v
+    Info (12023): Found entity 1: mac_tb File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/mac_tb.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file verilog codes/ksa20.v
+    Info (12023): Found entity 1: ksa20 File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/ksa20.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file verilog codes/dff.v
+    Info (12023): Found entity 1: d_ff File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/dff.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file verilog codes/controller.v
+    Info (12023): Found entity 1: controller File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/controller.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file verilog codes/add_accmulate.v
+    Info (12023): Found entity 1: add_accumulate File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/add_accmulate.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mac.v
+    Info (12023): Found entity 1: mac File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/mac.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at wallace_tree_multiplier.v(88): created implicit net for "result9_c_temp_5" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 88
+Warning (10236): Verilog HDL Implicit Net warning at wallace_tree_multiplier.v(88): created implicit net for "result9_temp_5" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 88
+Warning (10236): Verilog HDL Implicit Net warning at wallace_tree_multiplier.v(96): created implicit net for "result10_c_temp_4" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 96
+Warning (10236): Verilog HDL Implicit Net warning at wallace_tree_multiplier.v(96): created implicit net for "result10_temp_4" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 96
+Warning (10236): Verilog HDL Implicit Net warning at wallace_tree_multiplier.v(103): created implicit net for "result11_c_temp_3" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 103
+Warning (10236): Verilog HDL Implicit Net warning at wallace_tree_multiplier.v(103): created implicit net for "result11_temp_3" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 103
+Warning (10236): Verilog HDL Implicit Net warning at wallace_tree_multiplier.v(109): created implicit net for "result12_c_temp_2" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 109
+Warning (10236): Verilog HDL Implicit Net warning at wallace_tree_multiplier.v(109): created implicit net for "result12_temp_2" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 109
+Warning (10236): Verilog HDL Implicit Net warning at wallace_tree_multiplier.v(114): created implicit net for "result13_c_temp_1" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 114
+Warning (10236): Verilog HDL Implicit Net warning at wallace_tree_multiplier.v(114): created implicit net for "result13_temp_1" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 114
+Warning (10236): Verilog HDL Implicit Net warning at wallace_tree_multiplier.v(118): created implicit net for "result14_c" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 118
+Info (12127): Elaborating entity "mac" for the top level hierarchy
+Info (12128): Elaborating entity "register_8" for hierarchy "register_8:rega" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/mac.v Line: 38
+Info (12128): Elaborating entity "d_ff" for hierarchy "register_8:rega|d_ff:d0" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/register_8.v Line: 8
+Info (12128): Elaborating entity "wallace_tree_multiplier" for hierarchy "wallace_tree_multiplier:multiplier" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/mac.v Line: 55
+Info (12128): Elaborating entity "HA" for hierarchy "wallace_tree_multiplier:multiplier|HA:result1_HA_1" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 25
+Info (12128): Elaborating entity "FA" for hierarchy "wallace_tree_multiplier:multiplier|FA:result2_FA_1" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v Line: 29
+Info (12128): Elaborating entity "add_accumulate" for hierarchy "add_accumulate:adc" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/mac.v Line: 63
+Info (12128): Elaborating entity "register_20" for hierarchy "add_accumulate:adc|register_20:reg1" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/add_accmulate.v Line: 20
+Info (12128): Elaborating entity "ksa20" for hierarchy "add_accumulate:adc|ksa20:adder" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/add_accmulate.v Line: 27
+Warning (10036): Verilog HDL or VHDL warning at ksa20.v(9): object "ccp" assigned a value but never read File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/ksa20.v Line: 9
+Info (12128): Elaborating entity "controller" for hierarchy "controller:cont" File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/mac.v Line: 77
+Warning (10230): Verilog HDL assignment warning at controller.v(24): truncated value with size 32 to match size of target (6) File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/controller.v Line: 24
+Warning (10230): Verilog HDL assignment warning at controller.v(88): truncated value with size 32 to match size of target (6) File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/controller.v Line: 88
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "rc[19]" is stuck at GND File: D:/Arvind/Engineering Material/Mini Project/Quartus Projects/mac.v Line: 7
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file D:/Arvind/Engineering Material/Mini Project/Quartus Projects/output_files/mac.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 342 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 19 input pins
+    Info (21059): Implemented 29 output pins
+    Info (21061): Implemented 294 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
+    Info: Peak virtual memory: 4817 megabytes
+    Info: Processing ended: Tue Mar 05 13:01:00 2024
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:35
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Arvind/Engineering Material/Mini Project/Quartus Projects/output_files/mac.map.smsg.
+
+

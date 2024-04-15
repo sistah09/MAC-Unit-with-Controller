@@ -1,0 +1,129 @@
+# Reading pref.tcl
+# do mac_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying E:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+D:/Arvind/Engineering\ Material/Mini\ Project/Quartus\ Projects/verilog\ codes {D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 13:01:19 on Mar 05,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes" D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/wallace_tree_multiplier.v 
+# -- Compiling module wallace_tree_multiplier
+# -- Compiling module FA
+# -- Compiling module HA
+# 
+# Top level modules:
+# 	wallace_tree_multiplier
+# End time: 13:01:19 on Mar 05,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Arvind/Engineering\ Material/Mini\ Project/Quartus\ Projects/verilog\ codes {D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/register_20.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 13:01:19 on Mar 05,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes" D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/register_20.v 
+# -- Compiling module register_20
+# 
+# Top level modules:
+# 	register_20
+# End time: 13:01:19 on Mar 05,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Arvind/Engineering\ Material/Mini\ Project/Quartus\ Projects/verilog\ codes {D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/register_8.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 13:01:19 on Mar 05,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes" D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/register_8.v 
+# -- Compiling module register_8
+# 
+# Top level modules:
+# 	register_8
+# End time: 13:01:19 on Mar 05,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Arvind/Engineering\ Material/Mini\ Project/Quartus\ Projects/verilog\ codes {D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/ksa20.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 13:01:19 on Mar 05,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes" D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/ksa20.v 
+# -- Compiling module ksa20
+# 
+# Top level modules:
+# 	ksa20
+# End time: 13:01:19 on Mar 05,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Arvind/Engineering\ Material/Mini\ Project/Quartus\ Projects/verilog\ codes {D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/dff.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 13:01:19 on Mar 05,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes" D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/dff.v 
+# -- Compiling module d_ff
+# 
+# Top level modules:
+# 	d_ff
+# End time: 13:01:19 on Mar 05,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Arvind/Engineering\ Material/Mini\ Project/Quartus\ Projects/verilog\ codes {D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/controller.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 13:01:19 on Mar 05,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes" D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/controller.v 
+# -- Compiling module controller
+# 
+# Top level modules:
+# 	controller
+# End time: 13:01:19 on Mar 05,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Arvind/Engineering\ Material/Mini\ Project/Quartus\ Projects/verilog\ codes {D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/add_accmulate.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 13:01:20 on Mar 05,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes" D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/add_accmulate.v 
+# -- Compiling module add_accumulate
+# 
+# Top level modules:
+# 	add_accumulate
+# End time: 13:01:20 on Mar 05,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Arvind/Engineering\ Material/Mini\ Project/Quartus\ Projects {D:/Arvind/Engineering Material/Mini Project/Quartus Projects/mac.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 13:01:20 on Mar 05,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Arvind/Engineering Material/Mini Project/Quartus Projects" D:/Arvind/Engineering Material/Mini Project/Quartus Projects/mac.v 
+# -- Compiling module mac
+# 
+# Top level modules:
+# 	mac
+# End time: 13:01:20 on Mar 05,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+D:/Arvind/Engineering\ Material/Mini\ Project/Quartus\ Projects/verilog\ codes {D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/mac_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 13:01:20 on Mar 05,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes" D:/Arvind/Engineering Material/Mini Project/Quartus Projects/verilog codes/mac_tb.v 
+# -- Compiling module mac_tb
+# 
+# Top level modules:
+# 	mac_tb
+# End time: 13:01:20 on Mar 05,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  mac_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" mac_tb 
+# Start time: 13:01:20 on Mar 05,2024
+# Loading work.mac_tb
+# Loading work.mac
+# Loading work.register_8
+# Loading work.d_ff
+# Loading work.wallace_tree_multiplier
+# Loading work.HA
+# Loading work.FA
+# Loading work.add_accumulate
+# Loading work.register_20
+# Loading work.ksa20
+# Loading work.controller
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# End time: 13:05:29 on Mar 05,2024, Elapsed time: 0:04:09
+# Errors: 0, Warnings: 0
