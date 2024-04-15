@@ -1,0 +1,94 @@
+controller(
+	input clk,
+	input rst_n,
+	input start,
+	input end_mult,
+	output finish,
+	output reset_out,
+	output load_mult,
+	output begin_mult,
+	output add
+
+);
+	reg [2:0]state;
+	reg [3:0]temp_count;
+	parameter IDLE=2'b000, INIT=2'b001, LOAD=2'b010, RUN=2'b011, TEST=2'b100, ADD=2'101;
+	
+	always @ (posedge clk or negedge clk) begin
+		if (!rst_n) begin
+			reset_out = 1'b0;
+			state <= IDLE;
+			temp_count <= 4'b1001;
+		
+		else begin
+		
+			case(state)
+				IDLE:begin
+					reset_out = 1'b1;
+					add = 1'b0;
+					begin_mult = 1'b0;
+					load_mult = 1'b0;
+					finish = 1'b1;
+					if (start) = '1'	state <= INIT; 
+					else	state <= IDLE; 
+				end
+				 
+				INIT:begin
+					reset_out = 1'b0;
+					add = 1'b0;
+					begin_mult = 1'b0;
+					load_mult = 1'b0;
+					finish = 1'b0;
+				 	state <= LOAD; 
+				end
+				LOAD:begin 
+					reset_out = 1'b1;
+					add = 1'b0;
+					begin_mult = 1'b0;
+					load_mult = 1'b1;
+					finish = 1'b0;
+					state <= RUN; 
+				end
+
+				RUN:begin 
+					reset_out = 1'b1;
+					add = 1'b0;
+					begin_mult = 1'b1;
+					load_mult = 1'b0;
+					finish = 1'b0;
+					state <= TEST; 
+				end
+
+				TEST:begin 
+					reset_out = 1'b1;
+					add = 1'b0;
+					begin_mult = 1'b0;
+					load_mult = 1'b0;
+					finish = 1'b0;
+				 	if (END_MULT == 0) 
+				 		state <= TEST; 
+					else 
+				 		state <= ADD; 
+				end ; 
+				 
+				ADD:begin 
+					reset_out = 1'b1;
+					add = 1'b1;
+					begin_mult = 1'b0;
+					load_mult = 1'b0;
+					finish = 1'b0;
+				 	if (temp_count = 4'b0000)
+				 		temp_count <= 4'b1001; 
+				 		state <= IDLE; 
+				 	else 
+				 		temp_count <= temp_count - 1; 
+						 state <= LOAD; 
+				 end  
+		endcase;
+				
+		
+		
+	
+	end
+
+endmodule

@@ -1,0 +1,44 @@
+// Code your design here
+module ksa20(
+  input [19:0] a,
+  input [19:0] b,
+  input cin,
+  output [19:0] sum
+);
+
+wire [19:0] p, g, cp, cg, ccg, ccp, c;
+
+assign p = a ^ b;
+assign g = a & b;
+
+assign cg[0] = g[0];
+assign cp[0] = p[0];
+
+genvar i;
+generate
+  for (i = 1; i < 20; i = i + 1) begin: for1
+    assign cg[i] = (p[i] & g[i - 1]) | g[i];
+    assign cp[i] = p[i] & p[i - 1];
+  end
+endgenerate
+
+assign ccg[0] = cg[0];
+assign ccp[0] = cp[0];
+
+generate
+  for (i = 1; i < 20; i = i + 1) begin: for2
+    assign ccg[i] = (cp[i] & cg[i - 1]) | cg[i];
+    assign ccp[i] = cp[i] & cp[i - 1];
+  end
+endgenerate
+
+assign c = ccg;
+assign sum[0] = p[0] ^ cin;
+
+generate
+  for (i = 1; i < 20; i = i + 1) begin: for3
+    assign sum[i] = p[i] ^ c[i - 1];
+  end
+endgenerate
+
+endmodule

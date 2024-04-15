@@ -1,0 +1,140 @@
+module wallace_tree_multiplier( //v3
+			input clk, rst,
+			input [7:0] A, B,
+			input begin_mult,
+			output reg [15:0] r_P,
+			output reg end_mult
+			);
+
+integer i; 
+wire s11,s12,s13,s14,s15,s22,s23,s24,s25,s26,s32,s34,s35,s36,s37; 
+wire c11,c12,c13,c14,c15,c22,c23,c24,c25,c26,c32,c34,c35,c36,c37; 
+reg [3:0] pp0,pp1,pp2,pp3 ; 
+wire [15:0] P;
+ 
+//Calculation of Partial Product 
+always @(A or B) 
+begin 
+    for(i=0;i<4;i=i+1) begin 
+  pp0[i] <= A[i] & B[0]; 
+  pp1[i] <= A[i] & B[1]; 
+  pp2[i] <= A[i] & B[2]; 
+  pp3[i] <= A[i] & B[3]; 
+    end      
+end 
+ 
+assign P[0] = pp0[0]; 
+assign P[1] = s11; 
+assign P[2] = s22; 
+assign P[3] = s32; 
+assign P[4] = s34; 
+assign P[5] = s35; 
+assign P[6] = s36; 
+assign P[7] = s37; 
+assign P[8] = c37;
+assign P[9] = 1'b0;
+assign P[10] = 1'b0;
+assign P[11] = 1'b0;
+assign P[12] = 1'b0;
+assign P[13] = 1'b0;
+assign P[14] = 1'b0;
+assign P[15] = 1'b0;
+ 
+//first stage 
+half_add ha11 (pp0[1],pp1[0],s11,c11); 
+full_add fa12 (pp0[2],pp1[1],pp2[0],s12,c12); 
+full_add fa13 (pp0[3],pp1[2],pp2[1],s13,c13); 
+full_add fa14 (pp1[3],pp2[2],pp3[1],s14,c14); 
+half_add ha15 (pp2[3],pp3[2],s15,c15); 
+ 
+//second stage 
+half_add ha21 (c11,s12,s22,c22); 
+full_add fa22 (pp3[0],c12,s13,s23,c23); 
+full_add fa23 (c13,c23,s14,s24,c24);  
+full_add fa24 (c14,c24,s15,s25,c25); 
+full_add fa25 (c15,c25,pp3[3],s26,c26); 
+ 
+//third stage 
+half_add ha31 (c22,s23,s32,c32); 
+half_add ha32 (c32,s24,s34,c34); 
+half_add ha33 (c34,s25,s35,c35); 
+half_add ha34 (c35,s26,s36,c36); 
+half_add ha35 (c36,c26,s37,c37); 
+ 
+
+// Multiplier product is obtained
+
+
+	 reg [1:0]state;
+	 always @ (posedge clk or negedge rst) begin
+		if (!rst) begin
+			r_P <= 0;
+			end_mult <= 1'b0;
+			end
+		else begin
+			r_P <= P;
+			end_mult <= 1'b1;
+			/*
+		case(state)
+			2'b00: begin
+				if (begin_mult) begin
+					product <= {c[55],s[55],s[54],s[52],s[49],s[45],s[40],s[34],s[27],s[20],s[14],s[9],s[5],s[2],s[0],p[0][0]};  //p[0][0]=P0
+					end_mult <= 1'b1;
+					state <= 2'b01;
+					end
+				else begin 
+					state <= 2'b00;
+					end_mult <= 1'b0;
+					end
+			end
+			
+			2'b01: begin
+				end_mult <= 1'b0;
+				state <= 2'b01;
+				end
+			default: state <= 2'b00;
+		
+		endcase*/
+		end
+	 end
+	
+endmodule
+
+
+
+
+
+module full_add(a,b,cin,sum,carry);
+
+input a,b,cin;
+
+output sum,carry;
+
+reg T1,T2,T3,carry;
+
+assign sum=a^b^cin;
+
+always @(a or b or cin)
+
+begin
+
+T1=a&b;
+
+T2=a&cin;
+
+T3=a&cin;
+
+carry=T1|T2|T3;
+
+end
+
+endmodule
+
+
+
+module half_add(a,b,sum,carry);
+input a,b;
+output sum,carry;
+assign sum=a^b;
+assign carry=a&b;
+endmodule
